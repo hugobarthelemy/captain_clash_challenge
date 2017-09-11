@@ -1,0 +1,2 @@
+class Perso < ApplicationRecord
+end
