@@ -1,0 +1,10 @@
+<%= simple_form_for(@perso) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :points_of_life, collection: 1..10, prompt: "Points de vie", selected: 3  %>
+  <%= f.input :attack_points, collection: 1..10, prompt: "Points d'attaque", selected: 3 %>
+  <%= f.input :picture_url %>
+
+  <%= f.button :submit %>
+<% end %>
