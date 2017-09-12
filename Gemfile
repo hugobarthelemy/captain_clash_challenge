@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 
 gem 'coffee-rails'
+gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
 
 group :development, :test do
   gem 'pry-byebug'
