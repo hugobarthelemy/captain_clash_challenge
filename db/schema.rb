@@ -10,19 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911122522) do
+ActiveRecord::Schema.define(version: 20170911235051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fights", force: :cascade do |t|
+    t.integer  "perso_id"
+    t.boolean  "winner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["perso_id"], name: "index_fights_on_perso_id", using: :btree
+  end
 
   create_table "persos", force: :cascade do |t|
     t.string   "name"
     t.integer  "points_of_life"
     t.integer  "attack_points"
-    t.integer  "experience"
+    t.integer  "experience",     default: 0
     t.string   "picture_url"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
+  add_foreign_key "fights", "persos"
 end
