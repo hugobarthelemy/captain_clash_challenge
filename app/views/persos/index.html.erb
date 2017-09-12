@@ -1,19 +1,33 @@
-<% @persos.each do |perso| %>
-  <%= perso.name  %>
-<% end %>
-<%= link_to "Créer un nouveau perso", new_perso_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <% @persos.each do |perso| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render "perso_card", perso: perso %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 link_to">
+      <%= link_to "Créer un nouveau perso", new_perso_path %>
+    </div>
+  </div>
+  <div class="row">
+    <form action="/fights/new" method="get">
+      <select name="id1" id="id1">
+        <% @persos.each do |perso| %>
+          <option value="<%= perso.id  %>"><%= perso.name  %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="VS">
+      <select name="id2" id="id2">
+        <% @persos.each do |perso| %>
+          <option value="<%= perso.id  %>"><%= perso.name  %></option>
+        <% end %>
+      </select>
+    </form>
+  </div>
+</div>
 
 
-<form action="/fights/new" method="get">
-  <select name="id1" id="id1">
-    <% @persos.each do |perso| %>
-      <option value="<%= perso.id  %>"><%= perso.name  %></option>
-    <% end %>
-  </select>
-  <select name="id2" id="id2">
-    <% @persos.each do |perso| %>
-      <option value="<%= perso.id  %>"><%= perso.name  %></option>
-    <% end %>
-  </select>
-  <input type="submit">
-</form>

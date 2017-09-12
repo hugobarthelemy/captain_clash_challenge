@@ -11,5 +11,6 @@
 
 // Your CSS partials
 @import "layouts/index";
-@import "components/index";
+@import "components/*";
 @import "pages/index";
+@import "persos/index";

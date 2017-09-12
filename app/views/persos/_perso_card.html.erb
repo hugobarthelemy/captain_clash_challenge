@@ -1,0 +1,45 @@
+<div class="perso-card">
+  <div class="card-header">
+    <h1><%= perso.name %></h1>
+    <% if perso.picture_url? %>
+      <img src='<%= perso.picture_url %>' class="avatar-large"/>
+    <% else %>
+      <img src="https://image.flaticon.com/icons/svg/8/8235.svg" class="avatar-large"/>
+    <% end %>
+  </div>
+  <div class="perso-card-body">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-2">
+        <%= perso.points_of_life %>
+      </div>
+      <div class="col-xs-4" data-toggle="tooltip" data-placement="right" title="Points de vie">
+        <i class="fa fa-heart"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-2">
+        <%= perso.attack_points %>
+      </div>
+      <div class="col-xs-4"  data-toggle="tooltip" data-placement="right" title="Points de vie">
+        <i class="fa fa-gavel"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-2">
+        <%= perso.experience %>
+      </div>
+      <div class="col-xs-4"  data-toggle="tooltip" data-placement="right" title="experience">
+        <i class="fa fa-trophy"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8">
+        <h3><%= perso.nb_fight_win %> (<%= perso.pourcent_fight_win %>%)</h3>
+      </div>
+      <div class="col-xs-4"  data-toggle="tooltip" data-placement="right" title="Nombre de victoire">
+        <i class="fa fa-trophy"></i>
+      </div>
+    </div>
+
+  </div>
+</div>
