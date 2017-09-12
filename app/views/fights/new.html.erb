@@ -1,10 +1,4 @@
-<% @persos.each do |perso| %>
-  <%= perso.name  %>
-<% end %>
-<%= link_to "Créer un nouveau perso", new_perso_path %>
-
-
-<form action="/fights/new" method="get">
+<form action="/fights" method="post">
   <select name="id1" id="id1">
     <% @persos.each do |perso| %>
       <option value="<%= perso.id  %>"><%= perso.name  %></option>
