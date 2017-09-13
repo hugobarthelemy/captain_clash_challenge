@@ -10,6 +10,14 @@ Perso.create!(name: "To", points_of_life: arr.sample, attack_points: arr.sample,
 Perso.create!(name: "Potté", points_of_life: 10, attack_points: 10, picture_url: "http://img0.ndsstatic.com/raiponce/le-chat-potte-dans-shrek_123774_w620.jpg")
 Perso.create!(name: "Ton", points_of_life: arr.sample, attack_points: arr.sample, picture_url: "http://lorempixel.com/400/400/cats/4")
 
+# puts "create weapons"
+# Weapon.create!(type_of_sort: "bouclier", name: "bouclier simple", point: 1)
+# Weapon.create!(type_of_sort: "bouclier", name: "bouclier double", point: 2)
+# Weapon.create!(type_of_sort: "bouclier", name: "super bouclier", point: 3)
+# Weapon.create!(type_of_sort: "sort", name: "boule de poil", point: 2)
+# Weapon.create!(type_of_sort: "sort", name: "herbe à chat", point: 1)
+# Weapon.create!(type_of_sort: "sort", name: "Péritonite Infectieuse Féline", point: 4)
+
 puts "Creating fights"
 def create_fight
   winner = Perso.all.sample

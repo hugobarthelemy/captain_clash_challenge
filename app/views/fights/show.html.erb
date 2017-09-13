@@ -1,4 +1,45 @@
-coucou
-<%= @fight1 %>
-<%= @fight2 %>
-<%= link_to "Recommencer une partie", persos_path %>
+<div class="container fight-show">
+  <div class="row"><h1>Résultat</h1></div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-5 card-fight-result winner">
+      <div class="row card-header">
+        <h2>WINNER!</h2>
+        <h3>Chat <%= @winner.name %></h3>
+        <% if @winner.picture_url? %>
+          <img src='<%= @winner.picture_url %>' class="avatar-large"/>
+        <% else %>
+          <img src="https://image.flaticon.com/icons/svg/8/8235.svg" class="avatar-large"/>
+        <% end %>
+      </div>
+      <div class="row fight-recap">
+        <h3>Arme(s) utilisée(s)</h3>
+        <% @fight_of_winner.weapons.each do |arme| %>
+          <p><%= arme.type_of_sort %>: <%= arme.name %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-2">
+      <h2>VS</h2>
+    </div>
+    <div class="col-xs-12 col-sm-5 card-fight-result looser">
+      <div class="row card-header">
+        <h2>LOOSER!</h2>
+        <h3>Chat <%= @looser.name %></h3>
+        <% if @looser.picture_url? %>
+          <img src='<%= @looser.picture_url %>' class="avatar-large"/>
+        <% else %>
+          <img src="https://image.flaticon.com/icons/svg/8/8235.svg" class="avatar-large"/>
+        <% end %>
+      </div>
+      <div class="row fight-recap">
+        <h3>Arme(s) utilisée(s)</h3>
+        <% @fight_of_looser.weapons.each do |arme| %>
+          <p><%= arme.type_of_sort %>: <%= arme.name %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to "Recommencer une partie", persos_path, :class => "btn btn-success" %>
+  </div>
+</div>
