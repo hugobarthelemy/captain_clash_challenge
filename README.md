@@ -4,7 +4,7 @@ CCC est le meilleur jeu de combas de chat jamais coder ! Peut-être car personne
 
 # Jouer en ligne
 
-C'est par ici :
+C'est par ici : https://captain-clash-challenge.herokuapp.com/
 
 # Jouer en local
 
