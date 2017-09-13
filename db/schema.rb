@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911235051) do
+ActiveRecord::Schema.define(version: 20170912201404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,5 +33,16 @@ ActiveRecord::Schema.define(version: 20170911235051) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "weapons", force: :cascade do |t|
+    t.string   "type_of_sort"
+    t.string   "name"
+    t.integer  "fight_id"
+    t.integer  "point"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["fight_id"], name: "index_weapons_on_fight_id", using: :btree
+  end
+
   add_foreign_key "fights", "persos"
+  add_foreign_key "weapons", "fights"
 end

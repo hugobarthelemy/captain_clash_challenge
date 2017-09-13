@@ -1,13 +1,46 @@
-<form action="/fights" method="post">
-  <select name="id1" id="id1">
-    <% @persos.each do |perso| %>
-      <option value="<%= perso.id  %>"><%= perso.name  %></option>
-    <% end %>
-  </select>
-  <select name="id2" id="id2">
-    <% @persos.each do |perso| %>
-      <option value="<%= perso.id  %>"><%= perso.name  %></option>
-    <% end %>
-  </select>
-  <input type="submit">
-</form>
+<div class="container">
+  <div class="row">
+    Choisissez les armes de vos chats
+  </div>
+  <form action="/fights" method="post">
+    <div class="row">
+      <div class="col-xs-6">
+        Chat 1
+        <div class="row">
+          Bouclier : <select name="weapon_bouclier_1" id="weapon_bouclier_1">
+            <% ["sans bouclier", "bouclier simple (+1)", "bouclier double (+2)", "super bouclier (+3)"].each do |bouclier| %>
+              <option value="<%= bouclier %>"><%= bouclier  %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="row">
+          Sort : <select name="weapon_sort_1" id="weapon_sort_1">
+            <% ["sans sort", "boule de poil (+1)", "herbe à chat (+2)", "Péritonite Infectieuse Féline (+4)"].each do |sort| %>
+              <option value="<%= sort %>"><%= sort %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        Chat 2
+        <div class="row">
+          <select name="weapon_bouclier_2" id="weapon_bouclier_2">
+            <% ["sans bouclier", "bouclier simple (+1)", "bouclier double (+2)", "super bouclier (+3)"].each do |bouclier| %>
+              <option value="<%= bouclier %>"><%= bouclier  %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="row">
+          <select name="weapon_sort_2" id="weapon_sort_2">
+            <% ["sans sort", "boule de poil (+1)", "herbe à chat (+2)", "Péritonite Infectieuse Féline (+4)"].each do |sort| %>
+              <option value="<%= sort %>"><%= sort %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+    </div>
+    <input name="id1" type="hidden" value="<%= @id1 %>"/>
+    <input name="id2" type="hidden" value="<%= @id2 %>"/>
+    <input type="submit" value="lancer le combat">
+  </form>
+</div>
